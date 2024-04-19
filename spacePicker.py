@@ -2,10 +2,10 @@ import cv2
 import pickle
 
 #video capture object
-cap = cv2.VideoCapture('D:\Christ\SEMESTER 4\DBMS Project\ParkEase\carPark2.mp4')
+cap = cv2.VideoCapture(r'C:\Users\satya\OneDrive\Documents\GitHub\ParkEase-Parking-Space-Detection\carPark2.mp4') #change this according to your video path
 
 try:
-    with open('D:\Christ\SEMESTER 4\DBMS Project\CarParkPos1', 'rb') as f:
+    with open(r'C:\Users\satya\OneDrive\Documents\GitHub\ParkEase-Parking-Space-Detection\CarParkPos1', 'rb') as f: #change this according to your pickle file path
         posList = pickle.load(f)
 except:
     posList = []

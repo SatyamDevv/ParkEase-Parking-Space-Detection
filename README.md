@@ -40,16 +40,19 @@ python mainwithui.py
 
 ## Screenshots
 Basic UI to run Program
+
 ![Basic UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/basicui.png)
 
-
 Detecting Spaces in Video
+
 ![Space Detection](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/detectspace.png)
 
 Creating Frames for every Spaces
+
 ![Make Frames](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/makeframe.png)
 
 UI for User can see Free, Available, and Total Spaces 
+
 ![User UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/userui.png)
 
 ## Known Issues

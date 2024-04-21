@@ -59,3 +59,9 @@ UI for User can see Free, Available, and Total Spaces
 
 1. Running create frame and detecting Spaces Crash the Program.
 2. We can Open User UI without Detecting Spaces.
+
+## Future Plans
+
+1. Add a Database so we get real time parking space data any where any time.
+2. Add a way to represent the Available, Occupied, Total Spaces in userui with its location and path to go there.
+3. Improve overall ui and Clean the code.

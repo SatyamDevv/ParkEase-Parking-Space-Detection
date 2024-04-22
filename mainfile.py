@@ -16,8 +16,16 @@ width, height = 80, 180
 # Create a shared variable for spaceCounter
 shared_space_counter = ctypes.c_int(0)
 
+# Lists to store available and free positions
+availablePositions = []
+freePositions = []
+
 def checkParkingSpace(imgPro, img):
+    global availablePositions, freePositions
     spaceCounter = 0
+    availablePositions = []
+    freePositions = []
+
     for pos in posList:
         x, y = pos
         imgCrop = imgPro[y:y+height, x:x+width]
@@ -28,12 +36,15 @@ def checkParkingSpace(imgPro, img):
             color = (0, 255, 0)
             thickness = 2
             spaceCounter += 1
+            freePositions.append(posList.index(pos))
         else:
             color = (0, 0, 255)
             thickness = 2
+            availablePositions.append(posList.index(pos))
         cv2.rectangle(img, pos, (pos[0]+width, (pos[1]+height)), color, thickness)
     cvzone.putTextRect(img, f'Free Space: {str(spaceCounter)}/{len(posList)}', (100, 50), scale=2, thickness=2, offset=20, colorR=(0, 200, 0))
-    return spaceCounter
+
+    return spaceCounter, availablePositions, freePositions, posList
 
 def update_space_counter(spaceCounter):
     shared_space_counter.value = spaceCounter
@@ -49,7 +60,7 @@ def determineSpot():
         imgMedian = cv2.medianBlur(imgThreshold, 5)
         kernal = np.ones((3, 3), np.uint8)
         imgDilate = cv2.dilate(imgMedian, kernal, iterations=1)
-        spaceCounter = checkParkingSpace(imgDilate, img)
+        spaceCounter, availablePositions, freePositions, posList = checkParkingSpace(imgDilate, img)
         update_space_counter(spaceCounter)  # Update the shared variable
         cv2.imshow("Image", img)
         #cv2.imshow("imgBlur",imgBlur)
@@ -60,5 +71,5 @@ def determineSpot():
         if cv2.getWindowProperty("Image", cv2.WND_PROP_VISIBLE) < 1:
             break
     cv2.destroyAllWindows()
-    
+
 #determineSpot()

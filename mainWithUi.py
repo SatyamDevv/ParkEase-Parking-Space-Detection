@@ -33,6 +33,9 @@ class NewWindow(QGroupBox):
         super().__init__()
         uic.loadUi(r"UI\userUi.ui", self)
 
+        self.availablePositions = self.findChild(QPlainTextEdit, "availablePositions")
+        self.freePositions = self.findChild(QPlainTextEdit, "freePositions")
+
         # Create a timer to update the labels periodically
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_labels)
@@ -46,12 +49,19 @@ class NewWindow(QGroupBox):
         self.freeSpot.setText(f"Free Spot\n{space_counter}")
         self.available.setText(f"Occupied Spot\n{available_spots}")
         self.totalSpot.setText(f"Total Spot\n{total_spots}")
+        self.freeSpotLocation.setText(f"Free Spot Location\n{mainfile.freePositions}")
+        
+        # print("Occupied",mainfile.availablePositions)
+        # print("Free",mainfile.freePositions)
+        # print("total positions:", mainfile.posList)
+        
 
         # Set the style sheets for the labels
         self.totalSpot.setStyleSheet("QLabel { font-size: 20px; text-align: center; vertical-align: middle; font-weight: bold; background-color: blue; color: white; }")
         self.freeSpot.setStyleSheet("QLabel { font-size: 20px; text-align: center; vertical-align: middle; font-weight: bold; background-color: green; color: white; }")
         self.available.setStyleSheet("QLabel { font-size: 20px; text-align: center; vertical-align: middle; font-weight: bold; background-color: red; color: white; }")
-
+        self.freeSpotLocation.setStyleSheet("QLabel { font-size: 15px; text-align: left; vertical-align: middle; font-weight: bold; background-color: green; color: white; }")
+        
 def main():
     app = QApplication([])
     window = MyGUI()

@@ -53,7 +53,7 @@ Creating Frames for every Spaces
 
 UI for User can see Free, Available, and Total Spaces 
 
-![User UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/userui.png)
+![User UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/newuserui.png)
 
 ## Known Issues
 

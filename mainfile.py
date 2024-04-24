@@ -63,10 +63,10 @@ def determineSpot():
         spaceCounter, availablePositions, freePositions, posList = checkParkingSpace(imgDilate, img)
         update_space_counter(spaceCounter)  # Update the shared variable
         cv2.imshow("Image", img)
-        #cv2.imshow("imgBlur",imgBlur)
-        #cv2.imshow("imgThreshold",imgThreshold)
-        #cv2.imshow("imgMedian",imgMedian)
-        #cv2.imshow("imgDilate", imgDilate)
+        # cv2.imshow("imgBlur",imgBlur)
+        # cv2.imshow("imgThreshold",imgThreshold)
+        # cv2.imshow("imgMedian",imgMedian)
+        # cv2.imshow("imgDilate", imgDilate)
         keyCode = cv2.waitKey(1)
         if cv2.getWindowProperty("Image", cv2.WND_PROP_VISIBLE) < 1:
             break

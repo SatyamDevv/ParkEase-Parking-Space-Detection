@@ -5,7 +5,7 @@ import sys
 def updateData(mydict):
     
     try:
-        client = pymongo.MongoClient("mongodb+srv://satyamtiwari2001:reri1iz5047HQ4MZ@parkease.u0viukl.mongodb.net/?retryWrites=true&w=majority&appName=ParkEase")
+        client = pymongo.MongoClient("Your Mongodb link here")
         print("Connected successfully!!!")
     except pymongo.errors.ConfigurationError:
         print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")

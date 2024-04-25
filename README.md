@@ -11,6 +11,7 @@ ParkEase is a computer vision project designed to automatically detect free park
 - Image Preprocessing: Applies grayscale conversion, Gaussian blur, adaptive thresholding, and median blur for noise reduction and image segmentation.
 - Parking Space Analysis: Iterates through ROIs, extracts cropped images for each space, and analyzes pixel intensity to determine occupancy. A user-defined threshold is used to classify empty (green) and occupied (red) spaces.
 - Visualization: Overlays text on the processed frame to display parking space numbers and occupancy status.
+- MongoDB: Mongodb added to store the parking Space Data on Cloud.
 
 ## Installation 
 

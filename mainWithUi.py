@@ -4,6 +4,7 @@ from PyQt5.QtCore import QTimer
 import spacePicker
 import mainfile
 import threading
+import mongodb
 
 class MyGUI(QMainWindow):
     def __init__(self):
@@ -39,7 +40,7 @@ class NewWindow(QGroupBox):
         # Create a timer to update the labels periodically
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.update_labels)
-        self.timer.start(1000)  # Update every 1 second
+        self.timer.start(5000)  # Update every 1 second
 
     def update_labels(self):
         space_counter = mainfile.shared_space_counter.value
@@ -50,6 +51,9 @@ class NewWindow(QGroupBox):
         self.available.setText(f"Occupied Spot\n{available_spots}")
         self.totalSpot.setText(f"Total Spot\n{total_spots}")
         self.freeSpotLocation.setText(f"Free Spot Location\n{mainfile.freePositions}")
+        
+        mydict = {"FreeSpacesLocation": str(mainfile.freePositions), "TotalSpaces": total_spots, "Occupied": available_spots, "FreeSpaces": space_counter}
+        mongodb.updateData(mydict)
         
         # print("Occupied",mainfile.availablePositions)
         # print("Free",mainfile.freePositions)

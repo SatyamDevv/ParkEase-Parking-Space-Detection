@@ -1,16 +1,18 @@
 import pymongo
 import sys
 
-#connect to mongodb atlas
-try:
-    client = pymongo.MongoClient("Your MongoDB Link here")
-    print("Connected successfully!!!")
-except pymongo.errors.ConfigurationError:
-    print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
-    sys.exit(1)
-
 
 def updateData(mydict):
+    
+    try:
+        client = pymongo.MongoClient("mongodb+srv://satyamtiwari2001:reri1iz5047HQ4MZ@parkease.u0viukl.mongodb.net/?retryWrites=true&w=majority&appName=ParkEase")
+        print("Connected successfully!!!")
+    except pymongo.errors.ConfigurationError:
+        print("An Invalid URI host error was received. Is your Atlas host name correct in your connection string?")
+        sys.exit(1)
+    
+    mydb = client["ParkEase"]
+    mycol = mydb["ParkingSpaces"]
     # Find the document using its _id
     existing_document = mycol.distinct("_id")
     if existing_document[0]:
@@ -23,21 +25,21 @@ def updateData(mydict):
 
 
     
-def getData():
-    existing_document = mycol.distinct("_id")
+# def getData():
+#     existing_document = mycol.distinct("_id")
 
-    if existing_document[0]:
-        # getting the existing document
-        inserted_data = mycol.find_one({"_id": existing_document[0]})
-        print(inserted_data)
-    else:
-        all_documents = mycol.find()
-        for document in all_documents:
-            print(document)
+#     if existing_document[0]:
+#         # getting the existing document
+#         inserted_data = mycol.find_one({"_id": existing_document[0]})
+#         print(inserted_data)
+#     else:
+#         all_documents = mycol.find()
+#         for document in all_documents:
+#             print(document)
             
-mydb = client["ParkEase"]
-mycol = mydb["ParkingSpaces"]
-mydict = {"FreeSpacesLocation": "1,2,3,4,5,6", "TotalSpaces": "11", "Occupied": "3", "FreeSpaces": "8"}
-updateData(mydict)
-getData()
+# mydb = client["ParkEase"]
+# mycol = mydb["ParkingSpaces"]
+# mydict = {"FreeSpacesLocation": "1,2,3,4,5,6", "TotalSpaces": "11", "Occupied": "3", "FreeSpaces": "8"}
+# updateData(mydict)
+# #getData()
 

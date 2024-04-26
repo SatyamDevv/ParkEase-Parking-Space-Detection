@@ -52,9 +52,13 @@ Creating Frames for every Spaces
 
 ![Make Frames](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/makeframe.png)
 
-UI for User can see Free, Available, and Total Spaces 
+UI for User can see Free, Occupied, Total Spaces, and Free Space Location
 
 ![User UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/newuserui.png)
+
+MongoDB Structure of storing data
+
+![User UI](https://github.com/SatyamDevv/ParkEase-Parking-Space-Detection/blob/main/Screenshots/MongoDB%20structure.png)
 
 ## Known Issues
 
@@ -63,6 +67,6 @@ UI for User can see Free, Available, and Total Spaces
 
 ## Future Plans
 
-1. Add a Database so we get real time parking space data any where any time.
-2. Add a way to represent the Available, Occupied, Total Spaces in userui with its location and path to go there.
+1. Add a Database so we get real time parking space data any where any time. (Done ✅)
+2. Add a way to represent the Available, Occupied, Total Spaces in userui with its location and path to go there. (Done ✅)
 3. Improve overall ui and Clean the code.

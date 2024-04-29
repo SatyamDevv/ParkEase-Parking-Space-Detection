@@ -19,7 +19,10 @@ Import these Library Before Running
 
 ```bash
 
-pip install opencv-python pickle cvzone pyqt5
+pip install opencv-python
+pip install pickle
+pip install cvzone
+pip install pyqt5
 
 ```
 
